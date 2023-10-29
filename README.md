@@ -1,7 +1,6 @@
 # The App
 ## Description
-This app aims to build an app which will show a table with the student name, the course they are taking and their
-mobile number. The user can also add, search, edit or delete this data.
+This is the 2.0 version of my [Student Management System](https://github.com/YasirAtiq/Student_Management_System) app
 ## How to run the program
 Run using:
 - $ python main.py
@@ -10,17 +9,8 @@ Run using:
 
 ## How to make this a standalone app (.exe)
 - $ pyinstaller --onefile main.py
-- Add:
-
-data=[
-
-(r'path\to\this\folder\database.db','.')
-]
-
-to the main.spec file at the end.
 - $ pyinstaller main.spec
-- Open dist\main.exe
-- Overwrite the database.db with the database.db in the main folder.
+- The .exe file is in the dist directory
 
 ## Dependencies: 
 - altgraph==0.17.4 
@@ -32,3 +22,4 @@ to the main.spec file at the end.
 - PyQt6-Qt6==6.5.3 
 - PyQt6-sip==13.6.0 
 - pywin32-ctypes==0.2.2
+- mysql-connector-python==8.0.32

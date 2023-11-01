@@ -4,13 +4,36 @@ from PyQt6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
                              QTableWidgetItem, QDialog, QVBoxLayout, 
                              QComboBox, QToolBar, QStatusBar, QMessageBox)
 from PyQt6.QtGui import QAction, QIcon
+<<<<<<< HEAD
+import mysql.connect
+=======
 import mysql.connector as db_connector
+>>>>>>> 76fda08f25f09935d9309913eea5041250e4f73b
 import sys
 import os
 
+<<<<<<< HEAD
+=======
+courses = ["Math", "Astronomy", "Physics", "Biology"]
+>>>>>>> 76fda08f25f09935d9309913eea5041250e4f73b
+
 courses = ["Math", "Astronomy", "Physics", "Biology"]
 
+<<<<<<< HEAD
+class DataBase:
+    def __init__(self, host="localhost", user="root", 
+                 password=os.getenv("MAIN_PWD"), db_name="school"):
+        pass
+    
+    def connect(self):
+        connection = None
+        return connection
 
+
+database = DataBase()
+
+
+=======
 class DataBase:
     def __init__(self, host="localhost", password=os.getenv("MAIN_PWD"), 
                  username="root", db_name="school"):
@@ -29,6 +52,7 @@ class DataBase:
 database = DataBase()
 
 
+>>>>>>> 76fda08f25f09935d9309913eea5041250e4f73b
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -80,10 +104,15 @@ class MainWindow(QMainWindow):
         self.table.cellClicked.connect(self.cell_clicked)
 
     def load_data(self):
+<<<<<<< HEAD
+        connection = database.connect()
+        result = list(connection.execute("SELECT * FROM students"))
+=======
         connection = database.connect()
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM students")
         result = cursor.fetchall()
+>>>>>>> 76fda08f25f09935d9309913eea5041250e4f73b
         self.table.setRowCount(0)
         for index, row in enumerate(result):
             self.table.insertRow(index)
@@ -257,8 +286,13 @@ class EditRecord(QDialog):
         self.setLayout(layout)
 
     def edit_record(self):
+<<<<<<< HEAD
+        connection = sqlite3.connect("database.db")
+        cursor = database.connect()
+=======
         connection = database.connect()
         cursor = connection.cursor()
+>>>>>>> 76fda08f25f09935d9309913eea5041250e4f73b
         cursor.execute(
             "UPDATE students SET name = %s, course = %s, mobile = %s "
             "WHERE id = %s", (self.student_name.text(),

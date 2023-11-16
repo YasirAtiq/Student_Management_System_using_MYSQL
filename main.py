@@ -89,7 +89,8 @@ class MainWindow(QMainWindow):
             self.table.insertRow(index)
             for col_num, data in enumerate(row):
                 item = QTableWidgetItem(str(data))
-                self.table.setItem(index, col_num, item)
+                self.table.setItem(index, col_num,
+                                   item)
                 item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
         connection.close()
 
@@ -203,8 +204,7 @@ class SearchDialog(QDialog):
     def search(self):
         name = self.search_name.text()
         items = self.table.findItems(name,
-                                    Qt.MatchFlag.MatchFixedString)
-
+                                     Qt.MatchFlag.MatchFixedString)
         for item in items:
             self.table.item(item.row(), 0).setSelected(True)
             self.table.item(item.row(), 1).setSelected(True)
@@ -304,10 +304,9 @@ class AboutPage(QMessageBox):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("About Me")
-        content = """
-        Hello! My name is Yasir Atiq and I am Ardit Sulce's(the teachr) student.
-        I am currently doing his course "Python Mega Course: Learn Python in 60 Days, Build 20 Apps"
-        This is his app number 13. """
+        content = """Hello! My name is Yasir Atiq and I am Ardit Sulce's(the teacher) student.
+I am currently doing his course "Python Mega Course: Learn Python in 60 Days, Build 20 Apps"
+This is his app number 13. """
         self.setText(content)
 
 
